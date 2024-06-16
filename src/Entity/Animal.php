@@ -29,6 +29,10 @@ class Animal
     #[ORM\ManyToOne(inversedBy: 'animals')]
     private ?client $owner = null;
 
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?AnimalType $type = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +94,18 @@ class Animal
     public function setOwner(?client $owner): static
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getType(): ?AnimalType
+    {
+        return $this->type;
+    }
+
+    public function setType(?AnimalType $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
