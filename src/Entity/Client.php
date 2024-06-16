@@ -21,8 +21,8 @@ class Client
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $secondName = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $pesel = null;
+    #[ORM\Column(length: 255)]
+    private ?string $pesel = null;
 
     /**
      * @var Collection<int, Animal>
@@ -64,12 +64,12 @@ class Client
         return $this;
     }
 
-    public function getPesel(): ?int
+    public function getPesel(): string
     {
         return $this->pesel;
     }
 
-    public function setPesel(?int $pesel): static
+    public function setPesel(string $pesel): static
     {
         $this->pesel = $pesel;
 
