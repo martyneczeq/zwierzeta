@@ -26,7 +26,7 @@ class AnimalType extends AbstractType
             ])
             ->add('type', EntityType::class, [
                 'class' => \App\Entity\AnimalType::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
         ;
     }
