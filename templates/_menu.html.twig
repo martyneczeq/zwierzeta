@@ -1,0 +1,36 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height: auto !important" href="{{ path('app_main_index') }}">
+        <div class="sidebar-brand-icon">  {# rotate-n-15 #}
+            Zwierzęta
+        </div>
+        {#<div class="sidebar-brand-text mx-3">{{ 'tittle.olt'|trans }}<sub>{{ 'tittle.manager'|trans }}</sub></div>#}
+    </a>
+
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_main_index') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Strona główna</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_animal_index') }}">
+            <i class="fas fa-fw fa-paw"></i>
+            <span>Zwierzęta</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_client_index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Kliencie</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_animal_type_index') }}">
+            <i class="fas fa-fw fa-hippo"></i>
+            <span>Rodzaje zwierząt</span></a>
+    </li>
+
+    <hr class="sidebar-divider d-none d-md-block">
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>

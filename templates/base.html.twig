@@ -3,6 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/fontawesome/css/all.min.css') }}">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -11,8 +14,50 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body id="page-top">
+    <div id="wrapper">
+
+        {{ include('_menu.html.twig') }}
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                {{ include('_topbar.html.twig') }}
+                <div class="container-fluid">
+                    {% block body %}{% endblock %}
+                </div>
+                {% block LogoutModal %}
+                    <!-- Logout Modal-->
+                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Do zobaczenia</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Wybierz "Wyloguj się" jeśli chcesz zakończyć obecną sesję</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Anuluj</button>
+                                    <a class="btn btn-primary" href="/logout">Wyloguj się</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+            {{ include('_footer.html.twig') }}
+        </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
     </body>
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 </html>
