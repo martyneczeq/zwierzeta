@@ -20,7 +20,9 @@ class AnimalType extends AbstractType
             ->add('medicalRecords')
             ->add('owner', EntityType::class, [
                 'class' => Client::class,
-                'choice_label' => 'id',
+                'choice_label' => function (Client $client): string {
+                return $client->getName() . ' ' . $client->getSecondName();
+                },
             ])
             ->add('type', EntityType::class, [
                 'class' => \App\Entity\AnimalType::class,
