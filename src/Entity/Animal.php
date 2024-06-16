@@ -27,7 +27,7 @@ class Animal
     private ?string $medicalRecords = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
-    private ?client $owner = null;
+    private ?Client $owner = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
     #[ORM\JoinColumn(nullable: false)]
@@ -86,12 +86,12 @@ class Animal
         return $this;
     }
 
-    public function getOwner(): ?client
+    public function getOwner(): ?Client
     {
         return $this->owner;
     }
 
-    public function setOwner(?client $owner): static
+    public function setOwner(?Client $owner): static
     {
         $this->owner = $owner;
 
